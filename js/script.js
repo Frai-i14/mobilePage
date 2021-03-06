@@ -478,24 +478,25 @@ function bascketAdd() {
     let closeAll = document.querySelectorAll('.cost__basket_item_close');
     closeAll.forEach(element => {
         element.onclick = event => {
+            alert(event.path[1].children[7].children[0].textContent);
             let int = +event.path[1].children[7].children[0].textContent;
                 closeAll = document.querySelectorAll('.cost__basket_item_close');
                 totalValue = totalValue - int;
                 total.textContent = totalValue;
-                event.path[1].style.display = 'none';
+                event.path[1].remove();
 
             ///удаленние textarea из верхней формы
             let arrText = document.querySelectorAll('.text_basket_form');
                 for (let i = 0; i < closeAll.length; i++) {
                 if(element == closeAll[i]){
-                    arrText[i].parentNode.removeChild(arrText[i]);
+                    arrText[i].remove();
                 }
             }
             ///удаленние textarea из формы в футере
                 let arrTextFoo = document.querySelectorAll('.text_basket_form-footer');
             for (let i = 0; i < closeAll.length; i++) {
                 if(element == closeAll[i]){
-                    arrTextFoo[i].parentNode.removeChild(arrTextFoo[i]);
+                    arrTextFoo[i].remove();
                 }
             }
         };
