@@ -482,7 +482,7 @@ function bascketAdd() {
                 closeAll = document.querySelectorAll('.cost__basket_item_close');
                 totalValue = totalValue - int;
                 total.textContent = totalValue;
-                event.path[1].parentNode.removeChild(event.path[1]);
+                event.path[1].style.display = 'none';
 
             ///удаленние textarea из верхней формы
             let arrText = document.querySelectorAll('.text_basket_form');
