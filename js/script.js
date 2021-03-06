@@ -360,28 +360,6 @@ function validate(a, b, c, d) {
         return validAll;
 }
 
-//Переключение чекбокса///////////////////
-// const check = document.querySelectorAll('input[type=checkbox]'),
-//       label = document.querySelectorAll('.switch'),
-//       block = document.querySelectorAll('.cost__type_block');
-// let checkValue = 1.2,//Переменная для значения чекбокса
-//     factor = 0.166;//Получаем значение множителя из активного чекбокса
-
-// label.forEach(element => {
-//     element.addEventListener('click', event => {
-//         check.forEach(element => {
-//             element.checked = false;
-//         });
-//         block.forEach(element => {
-//             element.classList.remove('cost__type_block-active');
-//         });
-//         event.target.checked = true;
-//         event.path[2].classList.add('cost__type_block-active');
-//         checkValue = event.target.value;
-//         factor = +event.target.getAttribute('data-factor');
-//     });
-// });
-
 const check = document.querySelectorAll('input[type=checkbox]'),
       block = document.querySelectorAll('.cost__type_block');
 
@@ -423,7 +401,6 @@ function bascketAdd() {
 
     /////////Валидация значений////Проверка на пустые значения///////////////////
     let validValue = validate(lengthValue, widthValue, quantityValue, diameterValue);
-    let closeAll = document.querySelectorAll('.cost__basket_item_close');
 
     ////////////////создание элемента с указанием всех значений для прямоугольника и добавление в корзину///////
     if(rectangle.classList.contains('tab-active') && validValueRange == true && validValue == true){
@@ -459,8 +436,6 @@ function bascketAdd() {
 
         totalValue = totalValue + cost;
         total.textContent = totalValue;
-        closeAll = document.querySelectorAll('.cost__basket_item_close');
-
     }
     ////////////////создание элемента с указанием всех значений для круга и добавление в корзину///////
     else if(circle.classList.contains('tab-active') && validValueRange == true && validValue == true){
@@ -496,10 +471,10 @@ function bascketAdd() {
 
         totalValue = totalValue + cost;
         total.textContent = totalValue;
-        closeAll = document.querySelectorAll('.cost__basket_item_close');
     }
 
     //Кнопка удаления одного заказа из корзины и корректирование итоговой стоимости//удаление textarea из формы отправки
+    let closeAll = document.querySelectorAll('.cost__basket_item_close');
     closeAll.forEach(element => {
         element.onclick = event => {
             let int = +event.path[1].children[7].children[0].textContent;
