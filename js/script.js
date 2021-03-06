@@ -415,7 +415,7 @@ function bascketAdd() {
         ///////Создаём div
         let div = document.createElement('div');
         /////Прописываем наполнение дива со значениями
-        div.innerHTML = `<span class="cost__basket_item_close"></span><p style="margin-bottom: 14px;">${rectangle.textContent}</p><small>Длина:  ${lengthValue} см.<br>Ширина:  ${widthValue} см.<br>Толщина:  ${checkValue} мм.</small><p style="margin-top: 19px;">Обычная цена:  ${price} руб.</p><p>Ваша персональная скидка:  ${discount}% </p><p style="margin-bottom: 19px;">Цена со скидкой:  ${discountPrice} руб.</p><small>Количество:  ${quantityValue} шт.</small><p>Стоимость:  <span>${cost}</span> руб.<p/>`;
+        div.innerHTML = `<span onclick="" class="cost__basket_item_close"></span><p style="margin-bottom: 14px;">${rectangle.textContent}</p><small>Длина:  ${lengthValue} см.<br>Ширина:  ${widthValue} см.<br>Толщина:  ${checkValue} мм.</small><p style="margin-top: 19px;">Обычная цена:  ${price} руб.</p><p>Ваша персональная скидка:  ${discount}% </p><p style="margin-bottom: 19px;">Цена со скидкой:  ${discountPrice} руб.</p><small>Количество:  ${quantityValue} шт.</small><p>Стоимость:  <span>${cost}</span> руб.<p/>`;
         //////Добавляем класс для стилей
         div.classList.add('cost__basket_item');
         //////Добавляем div в корзину
@@ -477,7 +477,7 @@ function bascketAdd() {
     //Кнопка удаления одного заказа из корзины и корректирование итоговой стоимости//удаление textarea из формы отправки
     let closeAll = document.querySelectorAll('.cost__basket_item_close');
     closeAll.forEach(element => {
-        element.addEventListener('click', event => {
+        element.onclick = event => {
             let int = +event.path[1].children[7].children[0].textContent;
                 closeAll = document.querySelectorAll('.cost__basket_item_close');
                 totalValue = totalValue - int;
@@ -498,7 +498,7 @@ function bascketAdd() {
                     arrTextFoo[i].remove();
                 }
             }
-        });
+        };
     });
 }
 
