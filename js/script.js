@@ -478,6 +478,7 @@ function bascketAdd() {
     let closeAll = document.querySelectorAll('.cost__basket_item_close');
     closeAll.forEach(element => {
         element.onclick = event => {
+            alert('suchara');
             let int = +event.path[1].children[7].children[0].textContent;
                 closeAll = document.querySelectorAll('.cost__basket_item_close');
                 totalValue = totalValue - int;
