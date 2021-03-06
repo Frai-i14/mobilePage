@@ -478,12 +478,12 @@ function bascketAdd() {
     let closeAll = document.querySelectorAll('.cost__basket_item_close');
     closeAll.forEach(element => {
         element.onclick = event => {
-            alert(event);
-            let int = +event.path[1].children[7].children[0].textContent;
+            let path = event.composedPath();
+            let int = +path[1].children[7].children[0].textContent;
                 closeAll = document.querySelectorAll('.cost__basket_item_close');
                 totalValue = totalValue - int;
                 total.textContent = totalValue;
-                document.querySelectorAll('.cost__basket_item')[0].remove();
+                path[1].remove();
 
             ///удаленние textarea из верхней формы
             let arrText = document.querySelectorAll('.text_basket_form');
