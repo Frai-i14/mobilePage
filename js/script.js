@@ -477,8 +477,7 @@ function bascketAdd() {
     //Кнопка удаления одного заказа из корзины и корректирование итоговой стоимости//удаление textarea из формы отправки
     let closeAll = document.querySelectorAll('.cost__basket_item_close');
     closeAll.forEach(element => {
-        element.onclick = event => {
-            console.log(event.target);
+        element.addEventListener('click', event => {
             let int = +event.path[1].children[7].children[0].textContent;
                 closeAll = document.querySelectorAll('.cost__basket_item_close');
                 totalValue = totalValue - int;
@@ -499,7 +498,7 @@ function bascketAdd() {
                     arrTextFoo[i].remove();
                 }
             }
-        }
+        });
     });
 }
 
